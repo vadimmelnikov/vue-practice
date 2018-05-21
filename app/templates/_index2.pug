@@ -1,0 +1,34 @@
+doctype html
+html
+	head
+		title Index
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		//- <!--[if IE 8]>script(src='/ie.js')<![endif]-->
+		include head_style/_head_style
+	body
+		.wrapper
+			.content
+				include header/_header
+				div.main#app
+					.container
+						h1(v-on:click='tutorialDemo') CLick me please!!! and show console brouser {{ counter }}
+						form.border.m-1.p-4(:class="typeJob == 'list' ? 'border-primary' : 'border-danger' ")
+							.form-row
+								.form-group.col-md-6
+									.form-group
+										input(type='radio', name="type", v-model="typeJob", value='list', :checked="typeJob == 'list'")
+										input(type='radio', name="type", v-model="typeJob", value='search', :checked="typeJob == 'search'")
+							div {{ typeJob }}
+			include footer/_footer
+		include scripts/_scripts
+
+
+
+
+
+
+
+
+

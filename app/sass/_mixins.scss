@@ -1,0 +1,116 @@
+@keyframes dropHeader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+//@include anim(); Плавное появлении при display: none; to display: block;
+@mixin anim() {
+  animation-name: dropHeader;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+//@include clearfix();  ClearFix Все понятно
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//@include uldev(); сбрасывает стили у списка
+@mixin uldev() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+//@include boxsize();
+@mixin boxsize() {
+  box-sizing: border-box;
+}
+
+//Медиазапросы для разных разрешений. Указаны в em, чтобы в сафари при увеличения масштаба бреикпоинты срабатывали
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 64em) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 50em) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+
+  }
+}
+
+//Пример брекпоинтов
+//.grid-1-4 {
+//  width: 100%;
+//  @include breakpoint(phablet) {
+//    width: 50%;
+//  }
+//  @include breakpoint(laptop) {
+//    width: 25%;
+//  }
+//}
+
+//Для браузер не поддерживающие свг, заменяем картинку на пнг, а в случаи с ретиной в 2 раза большьше по размеру
+//Нарезаем картинки
+//pattern.svg
+//pattern.png
+//pattern@2x.png
+$image-path: '../images' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false) {
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if ($size) {
+    background-size: $size;
+  }
+  .no-svg & {
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+
+//Пример
+//body {
+//  @include background-image('pattern');
+//}
+
+//Cross browser opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//Пример
+//.faded-text {
+//  @include opacity(0.8);
+//}

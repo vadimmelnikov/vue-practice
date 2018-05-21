@@ -1,0 +1,48 @@
+{
+   "name": "mygulp",
+   "version": "1.0.0",
+   "description": "Устанавливаем пакеты: <br> npm i <br> Строим продакшн: <br> gulp build <br> Запускаем сервер: <br> gulp",
+   "main": "gulpfile.js",
+   "dependencies": {
+      "babel-core": "^6.26.0",
+      "browser-sync": "^2.7.1",
+      "gulp": "^3.8.11",
+      "gulp-connect": "^5.0.0",
+      "gulp-pug": "^3.3.0",
+      "gulp-sass": "^3.1.0",
+      "lodash": "^4.17.4",
+      "opn": "^5.1.0"
+   },
+   "devDependencies": {
+      "babel-preset-env": "^1.6.1",
+      "gulp": "^3.8.11",
+      "gulp-autoprefixer": "^4.0.0",
+      "gulp-babel": "^7.0.0",
+      "gulp-connect": "^5.0.0",
+      "gulp-cssmin": "^0.2.0",
+      "gulp-filter": "~2.0.2",
+      "gulp-imagemin": "^2.2.0",
+      "gulp-plumber": "^1.1.0",
+      "gulp-pug": "^3.3.0",
+      "gulp-rename": "^1.2.0",
+      "gulp-rigger": "^0.5.8",
+      "gulp-sass": "^3.1.0",
+      "gulp-sourcemaps": "^1.6.0",
+      "gulp-uglify": "~1.2.0",
+      "gulp-watch": "^4.3.11",
+      "imagemin-pngquant": "^4.0.0",
+      "main-bower-files": "~2.8.0",
+      "opn": "^1.0.2",
+      "rimraf": "^2.2.8"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vadimmelnikov/mygulp.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/vadimmelnikov/mygulp/issues"
+   },
+   "homepage": "https://github.com/vadimmelnikov/mygulp#readme"
+}

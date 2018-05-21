@@ -1,0 +1,62 @@
+@import "_variables";
+@import "_mixins";
+@import "_normalize.scss";
+@import "_fonts.scss";
+
+html {
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    height: 100%;
+    color: #333;
+    font-size: 16px;
+    font-family: "OpenSansRegular";
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.content {
+    padding-bottom: 90px;
+}
+.container {
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    @include clearfix();
+    @include breakpoint(phablet) {
+        max-width: 1140px;
+        // padding: 0 5%;
+    }
+}
+
+.main{
+    background: #ccc;
+}
+.btn {
+    height: 38px;
+    font-size: 13px;
+    border: 0;
+    //outline: 0;
+    box-shadow: none;
+    padding: 0 15px;
+    background: #ccc;
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+        background: #c3b29e;
+        color: #fff;
+    }
+}
+@import "_header.scss";
+@import "_footer.scss";
+@import "_images.scss";
+@import "_main.scss";

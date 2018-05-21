@@ -1,0 +1,23 @@
+{
+  "name": "my-gulpfile",
+  "version": "0.0.0",
+  "homepage": "https://github.com/vadimmelnikov/my-gulpfile",
+  "authors": [
+    "VadimMelnikov <vadic_m@mail.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/vendor",
+    "test",
+    "public",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.3",
+    "modernizr": "2.6.2",
+    "normalize-css": "normalize.css#^4.1.1"
+  }
+}

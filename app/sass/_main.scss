@@ -1,0 +1,9 @@
+.footer {
+  background: $black;
+  color: $white;
+  @include clearfix();
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
