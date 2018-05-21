@@ -41,21 +41,6 @@ body {
 .main{
     background: #ccc;
 }
-.btn {
-    height: 38px;
-    font-size: 13px;
-    border: 0;
-    //outline: 0;
-    box-shadow: none;
-    padding: 0 15px;
-    background: #ccc;
-    color: #fff;
-    text-decoration: none;
-    &:hover {
-        background: #c3b29e;
-        color: #fff;
-    }
-}
 @import "_header.scss";
 @import "_footer.scss";
 @import "_images.scss";
