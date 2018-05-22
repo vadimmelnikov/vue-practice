@@ -1,12 +1,19 @@
-Vue.component('task', {
+Vue.component('task-list', {
     template: `
-    <ul class="list-group">
-        <li class="list-group-item">{{ msg }}</li>
-    </ul>
+        <div>
+            <task v-for="task in taskss">{{ task.description }}</task>
+        </div>
     `,
     data(){
         return {
-            msg: 'hello'
+            msg: 'hello',
+            taskss: [
+                {description: 'Hello2', completed: true},
+                {description: 'Hello3', completed: false},
+                {description: 'Hello4', completed: true},
+                {description: 'Hello5', completed: false},
+                {description: 'Hello6', completed: false}
+            ]
         }
     }
 })
