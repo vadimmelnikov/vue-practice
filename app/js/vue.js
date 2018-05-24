@@ -1,3 +1,5 @@
+window.Event = new Vue();
+
 Vue.component('task-list', {
     template: `
         <div>
@@ -61,6 +63,49 @@ Vue.component('modal', {
         $('.modal').modal('show');
     }
 });
+
+Vue.component('tabs',{
+    template: `
+    <div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">123</div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">321</div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">9991</div>
+        </div>
+    </div>
+    `
+});
+
+
+Vue.component('coupon', {
+    data() {
+        return{
+            valueInputs: '',
+        }
+    },
+    template: `
+        <input type="text" placeholder="add coupon code" class="form-control" @blur="onCouponApplied" v-model="valueInputs">
+    `,
+    methods: {
+
+        onCouponApplied(){
+            // this.$emit('applied');
+
+            Event.$emit('applied');
+        },
+    }
+})
 var app = new Vue({
     el: '#vue',
     data: {
@@ -72,6 +117,7 @@ var app = new Vue({
         isLoading: false,
         move: false,
         showModal: false,
+        isApplied: false,
         tasks: [
             {description: 'Hello2', completed: true},
             {description: 'Hello3', completed: false},
@@ -90,7 +136,16 @@ var app = new Vue({
     mounted() {
 
     },
+    created(){
+        Event.$on('applied', () => alert('Applied'))
+    },
     methods: {
+        // onCouponApplied(){
+        //     this.isApplied = true;
+        // },
+        modalClose(){
+            $('.modal').modal('close');
+        },
         addName() {
             if (this.value.length > 0) {
                 this.names.push(this.value);
